@@ -18,9 +18,9 @@ String NAME;
 String ID;
 
 
-String Event_Name = "trial";
+String Event_Name = "Event_name";
 
-String Key = "h9GgAEQFz8S7BuCwvJoqp9wC04HWiathMqn7m9iht_H";
+String Key = "key";
 
 // Replace with your unique IFTTT URL resource
 String resource = "/trigger/" + Event_Name + "/with/key/" + Key;
@@ -29,8 +29,8 @@ String resource = "/trigger/" + Event_Name + "/with/key/" + Key;
 const char* server = "maker.ifttt.com";
 
 // Replace with your SSID and Password
-const char* ssid     = "Swarup's Galaxy F54 5G";
-const char* password = "Swaruplokamanya";
+const char* ssid     = "SSID";
+const char* password = "PASSWORD";
 // Add this line near the top, before setup()
 void makeIFTTTRequest();
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1); // -1 indicates no reset pin
@@ -143,52 +143,8 @@ void loop()                     // run over and over again
 
   }
 
-  if (finger.fingerID == 53 ) {
-    Serial.print("!!--");
-    Serial.println(finger.fingerID);
-    digitalWrite(2, LOW);
-    NAME = "swarup";
-    ID = "53";
-    if (finger.confidence >= 60) {
-      Serial.print("Attendace Marked for "); Serial.println(NAME);
-      digitalWrite(D0, LOW); // Turn off the LED
-      delay(5000);
-      display.clearDisplay();
-      display.setTextSize(1);
-      display.setTextColor(SSD1306_WHITE);
-      display.setCursor(0, 0);
-      display.print("attendance marked for ");
-      display.println(NAME);
-      display.display();
-      makeIFTTTRequest();
-      // digital write - open the door
-    }      //don't ned to run this at full speed.
-
-  }
-  if (finger.fingerID == 41 ) {
-    Serial.print("!!--");
-    Serial.println(finger.fingerID);
-    digitalWrite(2, LOW);
-    NAME = "prathamesh";
-    ID = "41";
-    if (finger.confidence >= 60) {
-      Serial.print("Attendace Marked for "); Serial.println(NAME);
-      digitalWrite(D0, LOW); // Turn off the LED
-      delay(5000);
-      display.clearDisplay();
-      display.setTextSize(1);
-      display.setTextColor(SSD1306_WHITE);
-      display.setCursor(0, 0);
-      display.print("attendance marked for ");
-      display.println(NAME);
-      display.display();
-      makeIFTTTRequest();
-      // digital write - open the door
-    }      //don't ned to run this at full speed.
-
-  }
-  finger.fingerID = 0;
-}
+  
+  
 
 uint8_t getFingerprintID() {
   uint8_t p = finger.getImage();
